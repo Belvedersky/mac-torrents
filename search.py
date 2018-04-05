@@ -119,7 +119,7 @@ def PrintHelpCommandInTorrentList():
     """)
         
 def ParsingTorrent(torrents_search, choice_torrent):
-    print(" Wait...")
+    print(" Wait....")
     #Парсинг выбранного торрента
     nextlink = torrents_search[choice_torrent - 1].get("href")
     requestsUser = requests.get(nextlink)
