@@ -1,1 +1,1 @@
-print("ты пидор")
+print("test sshkey")
