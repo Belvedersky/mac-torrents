@@ -127,7 +127,7 @@ def ParsingTorrent(torrents_search, choice_torrent):
     #Получаем информацию о торренте
     linkInfo_th = soup.find_all('th', {"class": "cell"})
     linkInfo_td = soup.find_all('td', {"class": "cell"})
-    list = 0
+    list = 1
     print(" ----------------------")
     for info in linkInfo_th:
         table_info = info.text
