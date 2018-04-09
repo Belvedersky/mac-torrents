@@ -31,11 +31,11 @@ def ParsingTorrents(name, currentPage, maxPage, category, mode):
     if int(currentPage) < 0 or int(currentPage) > int(maxPage):
         print("Error number page go back...")
         CommandUser("deadlock", name, 1, maxPage, category, mode)
-    link = f"https://mac-torrent-download.net/{category}page/{currentPage}/{name}"
+    link = f"https://mac-torrent-download.net/{category}/page/{currentPage}/{name}"
     requestsall = requests.get(link)
     soup = BeautifulSoup(requestsall.content, "html.parser")
     torrents_search = soup.find_all("a",{"rel":"bookmark"})
-
+    print(link)
     pages = ""
 
     if mode == "search":
@@ -120,20 +120,23 @@ def PrintHelpCommandInTorrentList():
         
 def ParsingTorrent(torrents_search, choice_torrent):
     print(" Wait....")
+    
     #Парсинг выбранного торрента
     nextlink = torrents_search[choice_torrent - 1].get("href")
+    print(" link-page:",nextlink)
     requestsUser = requests.get(nextlink)
     soup = BeautifulSoup(requestsUser.content, "html.parser")
     #Получаем информацию о торренте
     linkInfo_th = soup.find_all('th', {"class": "cell"})
     linkInfo_td = soup.find_all('td', {"class": "cell"})
-    list = 1
+    print(" img-link:", soup.find('img',{"itemprop":"image"}).get("src"))
+    list = 0
     print(" ----------------------")
-    for info in linkInfo_th:
-        table_info = info.text
-        info_torrent = linkInfo_td[list].get_text()
-        print(f" {table_info}: {info_torrent}")
-        list += 1
+    while list <5:
+        nameTorrent = linkInfo_th[list].get_text()
+        infoTorrent = linkInfo_td[list].get_text()
+        print(f" {nameTorrent}:{infoTorrent}")
+        list = list + 1
     print(" ----------------------")
 
     #Получаем массив из двух объектов(в 1 будет Магнет ссылка, во втором ссылка на Торрент)
@@ -156,6 +159,6 @@ def ParsingTorrent(torrents_search, choice_torrent):
     #Ссылка на скачку торрент файла
     torrent = soupTorrent.find('p', {"id":"dlbtn"}).next.get("href")
     print(" Torrent link: ", torrent)
-    LookupError
+    pass
 
 

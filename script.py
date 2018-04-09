@@ -11,7 +11,8 @@ def mainMenu():
  q - exit
     """)
     while menu: 
-        userKey = input(" Command: ")
+        userKey = input(""" ///////////////
+ Command: """)
         if userKey == "h":
             helpList()
         elif userKey == "s":
