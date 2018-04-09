@@ -11,7 +11,7 @@ q - exit
 mac-torrent-download.net - w/o advertising
 This is simple python parser link      
 Optional you can use Add-ons to clean download:
-Chrome: [Skip shorte.st ads] (https://chrome.google.com/webstore/detail/skip-shortest-ads/bhgkdnnlhmefhnkfilcaaibapeepkfok)
-Firefox: [AdSkip by tote] (https://addons.mozilla.org/en-US/firefox/addon/adskip-by-tote/?src=search)
-Opera: use Chrome add-ons with [Install Chrome Extensions]  (https://addons.opera.com/ru/extensions/details/install-chrome-extensions/ ) 
-""")
+Chrome: [Skip shorte.st ads](https://chrome.google.com/webstore/detail/skip-shortest-ads/bhgkdnnlhmefhnkfilcaaibapeepkfok).
+Firefox: [AdSkip by tote](https://addons.mozilla.org/en-US/firefox/addon/adskip-by-tote/?src=search).
+Opera: use Chrome add-ons with [Install Chrome Extensions](https://addons.opera.com/ru/extensions/details/install-chrome-extensions/). 
+
