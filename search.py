@@ -1,31 +1,16 @@
 import requests
 from bs4 import BeautifulSoup
 
-def Search():
+def Search(searchName):
     mode = "search"
     page = 1
-    maxPage = 1000 
-    searchName = input(" Search: ")
+    maxPage = 1000
+    if (searchName == ""):
+        searchName = input(" Search: ")
     category = ""
     name = f"?s={searchName}"
-    ParsingTorrents(name, page, maxPage, category, mode)
- 
-def ShowNewTorrents():
-    mode = "new"
-    page =  1
-    maxPage = 1000
-    name = ""
-    category = ""
-    ParsingTorrents(name, page, maxPage, category, mode)
-
-def Categories():
-    mode = "categories"
-    page = 1
-    maxPage = 1000
-    name = ""
-    category = ShowCategoriesList()
-    #print("You choise category:" , category)
-    ParsingTorrents(name,page,maxPage,category,mode)
+    torrentList = ParsingTorrents(name, page, maxPage, category, mode)
+    return torrentList
 
 def ParsingTorrents(name, currentPage, maxPage, category, mode):
     if int(currentPage) < 0 or int(currentPage) > int(maxPage):
@@ -36,31 +21,7 @@ def ParsingTorrents(name, currentPage, maxPage, category, mode):
     soup = BeautifulSoup(requestsall.content, "html.parser")
     torrents_search = soup.find_all("a",{"rel":"bookmark"})
 
-    pages = ""
-
-    if mode == "search":
-        searchResult = soup.find("h2").get_text()
-        lastResult = searchResult.split()[5]
-        if lastResult == "0":
-            print(f" Search Results not found posts.")
-        else:
-            if int(lastResult) > 50:
-                pages, maxPage = ParsingInformationForPagination(soup)
-
-    elif mode == "new" or "categories":
-        pages, maxPage = ParsingInformationForPagination(soup)
-
-    #Выводим список торрентов
-    PrintTorrentsList(torrents_search)
-    #Выводим информацию о поиске 
-    print("\n", pages)
-    #Выводим список вспомогательных комманд
-    PrintHelpCommandInTorrentList()
-    #Считываем комманды юзера
-    commandUser = input(" Command: ")
-    CommandUser(commandUser, name, int(currentPage), maxPage, category,mode)
-    #Парсим выбранный торрент
-    ParsingTorrent(torrents_search, int(commandUser))
+    return torrents_search
         
 def ParsingInformationForPagination(soup):
     pages = soup.find("div",{"class":"pagination"}).next.get_text()
@@ -118,23 +79,22 @@ def PrintHelpCommandInTorrentList():
  d - Previos page
     """)
         
-def ParsingTorrent(torrents_search, choice_torrent):
-    print(" Wait....")
+def ParsingTorrent(linkTorrent):
     #Парсинг выбранного торрента
-    nextlink = torrents_search[choice_torrent - 1].get("href")
-    requestsUser = requests.get(nextlink)
+    requestsUser = requests.get(linkTorrent)
     soup = BeautifulSoup(requestsUser.content, "html.parser")
     #Получаем информацию о торренте
-    linkInfo_th = soup.find_all('th', {"class": "cell"})
-    linkInfo_td = soup.find_all('td', {"class": "cell"})
-    list = 1
-    print(" ----------------------")
-    for info in linkInfo_th:
-        table_info = info.text
-        info_torrent = linkInfo_td[list].get_text()
-        print(f" {table_info}: {info_torrent}")
-        list += 1
-    print(" ----------------------")
+    # linkInfo_th = soup.find_all('th', {"class": "cell"})
+    # linkInfo_td = soup.find_all('td', {"class": "cell"})
+
+    #list = 1
+    # print(" ----------------------")
+    # for info in linkInfo_th:
+    #     table_info = info.text
+    #     info_torrent = linkInfo_td[list].get_text()
+    #     print(f" {table_info}: {info_torrent}")
+    #     list += 1
+    # print(" ----------------------")
 
     #Получаем массив из двух объектов(в 1 будет Магнет ссылка, во втором ссылка на Торрент)
     arrayMagtenAndTorrent = soup.find_all('li', {"class": "btn-list"})
@@ -151,11 +111,9 @@ def ParsingTorrent(torrents_search, choice_torrent):
 
     #Ссылка на скачку магнет
     magnet = soupMagnet.find('p', {"id":"dlbtn"}).next.get("href")
-    print(" Magnet link: ", magnet)
 
     #Ссылка на скачку торрент файла
     torrent = soupTorrent.find('p', {"id":"dlbtn"}).next.get("href")
-    print(" Torrent link: ", torrent)
-    LookupError
-
+    
+    return (torrent, magnet)
 

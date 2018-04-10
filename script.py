@@ -4,11 +4,11 @@ from helpList import *
 def mainMenu():
     menu = True
     print("""
- s - search torrent
- c - search by categories
- n - show new torrents
- h - help
- q - exit
+        s - search torrent
+        c - search by categories
+        n - show new torrents
+        h - help
+        q - exit
     """)
     while menu: 
         userKey = input(" Command: ")
@@ -24,5 +24,6 @@ def mainMenu():
             menu = False
         else:
             pass
+
 mainMenu()    
 
