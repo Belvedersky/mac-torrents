@@ -14,7 +14,7 @@ def ParsingTorrents(category, currentPage, name):
     requestsall = requests.get(link)
     soup = BeautifulSoup(requestsall.content, "html.parser")
     torrents_search = soup.find_all("a",{"rel":"bookmark"})
-
+    
     return torrents_search
 
 

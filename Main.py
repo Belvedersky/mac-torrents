@@ -27,6 +27,7 @@ GUI_Function = GUI_Function()
 
 root = Tk()
 root.title("MacTorrentParser")
+root.resizable(width=False, height=False)
 root.geometry("1000x780+300+200")
 
 textBoxParsing = Entry(root)
