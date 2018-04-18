@@ -1,0 +1,48 @@
+<html lang="en">
+  <head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta http-equiv="X-UA-Compatible" content="ie=edge">
+      <title>torrent-parser</title>
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.0/css/bulma.min.css">
+      <script defer src="https://use.fontawesome.com/releases/v5.0.7/js/all.js"></script>
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+  </head>
+
+  <body>
+
+    <section class="hero  is-large">
+      <div class="hero-body">
+
+        <div class="container ">
+          <h1 class="title is-primary">
+            mac-torrent-download.net 
+          </h1>
+          <h2 class="subtitle">
+            w/o adversing
+          </h2>
+        </div>
+
+        <section class="section">
+          <div class="container">
+              <div class="columns">
+
+                {% if getMethod %}
+                
+                  {% block form %}{% endblock %}
+
+                {% else %}
+
+                  {% block result %}{% endblock %}
+
+                {% endif %}
+
+              </div>
+          </div>
+        </section>
+
+      </div>
+    </section>
+
+  </body>
+</html>

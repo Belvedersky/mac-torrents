@@ -1,34 +1,24 @@
-{% extends 'root.html' %}
+{% extends 'base.html' %}
 
-
-{% block content %}
-<div class="column is-two-fifths">
-        <form action=" {{url_for('index')}} " method="POST">
-
+{% block form %}
+<form action="{{url_for('index')}}" method="POST">
         <div class="field is-grouped">
-            <div class="control">
-                    <input
-                    class="input is-primary" 
-                    id="search"
-                    type="text"
-                    pattern="[0-9]{3}"
-                    placeholder=""
-                    name = "search"
-                    value="{{ request.form.get('search',"")}}"
-                    >
-            </div>
-            <div class="control">
-                <p class="control">
-                        <a href="javascript:$('form').submit()" class="button is-primary">
-                                Search
-                        </a>     
-                </p>
-            </div>
+                <div class="control">
+                        <input
+                        class="input is-primary" 
+                        id="search"
+                        type="text"
+                        pattern="[0-9]{3}"
+                        placeholder=""
+                        name = "search"
+                        value="{{ request.form.get('search',"")}}"
+                        >
+                </div>
+                <div class="control">
+                        <p class="control">
+                                <a href="javascript:$('form').submit()" class="button is-primary">Search</a>     
+                        </p>
+                </div>
         </div>
-        </form> 
-
-       
-        {{ torrents ['name'][0]}} {{torrents ['link'][0]}}: {{torrents ['image'][0]}} - {{torrents ['date'][0]}}          -->
-       
-
+</form>
 {% endblock %}

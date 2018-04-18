@@ -1,8 +1,15 @@
-{% extends 'root.html' %}
+{% extends 'base.html' %}
 
+{% block result %}
+<div class="column">
+        <p>content</p>
 
-{% block content %}
-<div class="column">                           
-
-        </div>
+        {% for torrent in torrentsList %}
+                <p>{{torrent['name']}}</p>
+                <p>{{torrent['link']}}</p>
+                <p>{{torrent['image']}}</p>
+                <p>{{torrent['date']}}</p>
+                <br>
+        {% endfor %}                 
+</div>
 {% endblock %}
