@@ -1,15 +1,27 @@
 {% extends 'base.html' %}
 
 {% block result %}
-<div class="column">
-        <p>content</p>
+<div class="column is-half">
 
         {% for torrent in torrentsList %}
-                <p>{{torrent['name']}}</p>
-                <p>{{torrent['link']}}</p>
-                <p>{{torrent['image']}}</p>
-                <p>{{torrent['date']}}</p>
-                <br>
+        <div class="box">
+         <article class="media">
+
+           <div class="media-left">
+            <figure class="image is-128x128">
+                <img src={{torrent['image']}} alt={{torrent['name']}}>
+            </figure>
+           </div>
+
+           <div class="media-content">
+             <div class="content">
+                <a href={{torrent['link']}}><h3>{{torrent['name']}}</h3></a>
+                <p>
+                <i class="far fa-calendar-alt"></i>  {{torrent['date']}}</p>
+             </div>
+           </div>
+         </article>
+        </div>
         {% endfor %}                 
 </div>
 {% endblock %}
