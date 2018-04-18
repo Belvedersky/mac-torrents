@@ -1,8 +1,8 @@
 import requests
 from bs4 import BeautifulSoup
 
-def torrentList(search):
-    link = f"https://mac-torrent-download.net/page/1/?s={search}"
+def torrentList(search, page):
+    link = f"https://mac-torrent-download.net/page/{page}/?s={search}"
     requestsall = requests.get(link)
     soup = BeautifulSoup(requestsall.content, "html.parser")
 
@@ -11,7 +11,6 @@ def torrentList(search):
 
     print(link)
     print(currentPage,maxPage)
-
 
     torrents_search = soup.find_all("a",{"rel":"bookmark"})# search name and link
     torrents_img= soup.find_all("dt",{"onselectstart" :"return false"})
