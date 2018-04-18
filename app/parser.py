@@ -21,6 +21,7 @@ def torrentList():
     #print(len(torrents_name),len(torrents_link),len(torrents_image[:-24]),len(torrents_data))
     #print(len(torrents))
     #return torrents_list
+    print('get!')
     return torrents
 
 # getSearch("adobe")
