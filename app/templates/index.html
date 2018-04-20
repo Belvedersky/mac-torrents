@@ -11,14 +11,17 @@
                         pattern="[0-9]{3}"
                         placeholder=""
                         name = "search"
-                        value="{{ request.form.get('search',"")}}"
+                        value="{{ request.form.get('search',"Adobe")}}"
                         >
                 </div>
                 <div class="control">
                         <p class="control">
-                                <a href="javascript:$('form').submit()" class="button is-primary">Search</a>     
+                        <a href="javascript:$('form').submit()" class="button is-primary">Search</a>     
                         </p>
                 </div>
         </div>
 </form>
+
+
 {% endblock %}
+
