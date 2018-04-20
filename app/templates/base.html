@@ -1,4 +1,5 @@
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -17,8 +18,8 @@
           <p class="control">
             <p class="level-item ">
               <a class="link is-info">
-                <h2> <a href="{{ url_for('index')}}"> Parser torrents  w/o adv</a>
-                  
+                <h2>
+                  <a href="{{ url_for('index')}}"> Parser torrents w/o adv</a>
                 </h2>
               </a>
             </p>
@@ -32,15 +33,34 @@
       <div class="level-right">
         <div class="field is-grouped">
           <p class="control">
-            <p class="level-item ">
-              <a href="https://github.com/Belvedersky/mac-torrent-download.net-parser/tree/flaskParser" class="link is-info">Github</a>
-            </p>
-            <p class="level-item">
-              <a class="link is-info">Categories</a>
-            </p>
-            <p class="level-item ">
-              <a class="link is-info">About</a>
-            </p>
+            <p class="level-item "><a href="https://github.com/Belvedersky/mac-torrent-download.net-parser/tree/flaskParser" class="link is-info">Github</a></p>
+            
+            <!-- категории-->
+            <div class="dropdown is-right is-hoverable">
+
+                <div class="dropdown-trigger">
+                    <a class="level-item" aria-haspopup="true" aria-controls="dropdown-menu"> -Categories- </a>
+                </div>
+            
+                <div class="dropdown-menu" id="dropdown-menu" role="menu">
+                    <div class="dropdown-content">
+            
+                        {% for category in categories %}
+            
+                        <a href = {{categories[category]}}>
+                            <p>{{category}}</p>
+                        </a>
+            
+                        {% endfor %}
+            
+                    </div>
+                </div>
+                
+            </div>
+            <!-- /категории-->
+
+
+            <p class="level-item "><a class="link is-info">About</a></p>
           </p>
         </div>
       </div>
@@ -50,36 +70,24 @@
 
   <section class="hero ">
     <div class="hero-body  is-centered">
-        <div class="container is-centered">
-          <div class="columns is-centered">
-
-            {% if getMethod %}
-              {% block form %}
-               {% endblock %}
-              </div>
-            </div>
+      <div class="columns is-centered">
+        <div class="column is-narrow">
+          {% if getMethod %} {% block form %} {% endblock %}
         </div>
-      </section>
-             
-            {% else %}
-              {% block result %}
-                {% endblock %}
-            
-          </div>
-        </div>
-      </section>
+      </div>
     </div>
   </section>
+
+  {% else %} {% block result %} {% endblock %}
 
   <footer class="footer">
     <div class="container">
       <div class="content has-text-centered">
-        <p>
-          Simple torrent-parser
-        </p>
+        <p>Simple torrent-parser</p>
       </div>
     </div>
   </footer>
   {% endif %}
 </body>
+
 </html>

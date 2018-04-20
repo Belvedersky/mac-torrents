@@ -1,29 +1,25 @@
-{% extends 'base.html' %}
+{% extends 'base.html' %} {% block form %}
 
-{% block form %}
-<div class="columns is-centered">
-                <div class="column is-narrow">
 <form action="{{url_for('index')}}" method="POST">
         <div class="field has-addons has-addons-centered is-grouped">
+
                 <div class="control">
-                        <input
-                        class="input is-info is-medium" 
-                        id="search"
-                        type="text"
-                        pattern="[0-9]{3}"
-                        placeholder="Find something"
-                        name = "search"
-                        value="{{ request.form.get('search',"")}}"
-                        >
+                        <input class="input is-info is-medium"
+                                id="search" 
+                                type="text" 
+                                pattern="[0-9]{3}" 
+                                placeholder="Find something" 
+                                name="search"
+                                value="{{ request.form.get('search'," ")}}">
                 </div>
+
                 <div class="control">
                         <p class="control">
-                        <a href="javascript:$('form').submit()" class="button is-info is-medium">Search</a>     
+                                <a href="javascript:$('form').submit()" class="button is-info is-medium">Search</a>
                         </p>
                 </div>
+
         </div>
 </form>
 
-
 {% endblock %}
-
