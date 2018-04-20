@@ -26,6 +26,6 @@ def result(page = 1):
     return render_template('result.html', torrentsList = torrentsList, searchResult = searchResult)
     
 if __name__ == '__main__':
-    app.run(port=5001, debug=True)
+    app.run(port=5001, debug=True, use_reloader=True)
 
 

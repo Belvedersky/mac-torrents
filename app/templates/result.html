@@ -4,43 +4,45 @@
 
 </div>
 <div class="column is-narrow">
-    <p class="bd-notification is-primary">
-        <h1>{{ searchResult }}</h1>
-    </p>
+  <p class="bd-notification is-primary">
+    <h1>{{ searchResult }}</h1>
+  </p>
 </div>
 
 <div class="columns">
-<div class="column is-half">
+  <div class="column is-half">
 
-  <h4> {% for torrent in torrentsList %} </h4>
-  <div class="box has-text-centered">
-    <article class="media">
+     {% for torrent in torrentsList %} 
+     <a href={{torrent[ 'link']}}>
+    <div class="box has-text-centered">
+      <article class="media">
 
-      <div class="media-left">
-        <figure class="image is-128x128">
-          <img src={{torrent[ 'image']}} alt={{torrent[ 'name']}}>
-        </figure>
-      </div>
+        <div class="media-left">
+          <figure class="image is-128x128">
+            <img src={{torrent[ 'image']}} alt={{torrent[ 'name']}}>
+          </figure>
+        </div>
 
-      <div class="media-content">
-        <div class="content">
-          <div class="columns">
-            <div class="column">
-              <a href={{torrent[ 'link']}}>
-                <h4>{{torrent['name']}} </h4>
-              </a>
-              <p>
-                <i class="far fa-calendar-alt"></i> {{torrent['date']}}
-              </p>
-              <i class="fas fa-tags"></i> {{torrent['tags']}}
+        <div class="media-content">
+          <div class="content">
+            <div class="columns">
+              <div class="column">
+                <a href={{torrent[ 'link']}}>
+                  <h4>{{torrent['name']}} </h4>
+                </a>
+                <p>
+                  <i class="far fa-calendar-alt"></i> {{torrent['date']}}
+                </p>
+                <i class="fas fa-tags"></i> {{torrent['tags']}}
+              </div>
             </div>
           </div>
         </div>
-      </div>
-    </article>
+      </article>
+    </div>
+  </a>
+    {% endfor %}
   </div>
-  {% endfor %}
-</div>
 </div>
 
 {% endblock %}

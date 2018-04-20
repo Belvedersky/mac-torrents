@@ -49,19 +49,22 @@
 
 
   <section class="hero ">
-    <div class="hero-body">
-      <section class="section">
-        <div class="container">
-          <div class="columns">
+    <div class="hero-body  is-centered">
+        <div class="container is-centered">
+          <div class="columns is-centered">
 
             {% if getMethod %}
               {% block form %}
                {% endblock %}
+              </div>
+            </div>
+        </div>
+      </section>
              
             {% else %}
               {% block result %}
                 {% endblock %}
-            {% endif %}
+            
           </div>
         </div>
       </section>
@@ -77,6 +80,6 @@
       </div>
     </div>
   </footer>
-
+  {% endif %}
 </body>
 </html>
