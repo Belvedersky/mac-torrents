@@ -4,7 +4,7 @@ from bs4 import BeautifulSoup
 def Search(link):
     requestsall = requests.get(link)
     soup = BeautifulSoup(requestsall.content, "html.parser")
-    Result = soup.find("h2").get_text()
+    Result = str(soup.find("h2").get_text())
     maxPage = int(soup.find("div",{"class":"pagination"}).next.get_text().split()[3]) # Max page
     currentPage =  int(soup.find("span",{"class":"current"}).text)
 
@@ -35,12 +35,5 @@ def Search(link):
 def torrentList(search, page):
     link = f"https://mac-torrent-download.net/page/{page}/?s={search}"
     torrentList, searchResult = Search(link)
-    searchName = searchResult["Result"].split('"')[1]
-    searchResult["searchName"] = searchName
     return torrentList, searchResult
-    
-    
-def categoryList(href,page):
-    link = f"{href}/page/{page}"
-    torrentList, searchResult = Search(link)
-    return torrentList, searchResult
+

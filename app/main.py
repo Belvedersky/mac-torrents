@@ -1,5 +1,5 @@
 from flask import Flask,render_template,request, redirect, url_for, make_response
-from parser import torrentList
+from parser import torrentList, Search
 from categories import getCategories
 
 app = Flask(__name__)
@@ -17,8 +17,6 @@ def index():
 
 
 @app.route('/search/', methods=['GET', 'POST'])
-@app.route('/page/<int:page>/search', methods=['GET', 'POST'])
-
 def result():
     searchName = request.args['search']
     page = request.args['pages']
@@ -26,10 +24,20 @@ def result():
     return render_template('result.html',
                             torrentsList = torrentsList,
                             searchResult = searchResult,
-                            categories = getCategories(),
-                            
-                           )
+                            categories = getCategories())
 
+
+@app.route('/categorys/', methods=['GET', 'POST'])
+def categorys():
+    category = request.args['category']
+    url = request.args['url']
+    torrentsList, searchResult = Search(url)
+
+    return render_template('result.html',
+                            torrentsList = torrentsList,
+                            searchResult = searchResult,
+                            category = category,
+                            categories = getCategories())
 
 
 

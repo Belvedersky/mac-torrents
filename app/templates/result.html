@@ -5,10 +5,16 @@
 <div class="tile is-ancestor">
   <!-- Левый тайл -->    
   <div class="tile is-parent is-vertical is-7">
-       <!-- Информация о поиске тайл -->        
+       <!-- Информация о поиске тайла -->        
       <div class="notification">
-            {{ searchResult['Result'] }}
-            <p> Page {{ searchResult['currentPage'] }} is {{ searchResult['Maxpage'] }}</p>
+
+        {% if category %}
+          <p>{{category}}</p>
+        {% else %}
+          {{ searchResult['Result'] }}
+          <p> Page {{ searchResult['currentPage'] }} is {{ searchResult['Maxpage'] }}</p>
+        {% endif %}
+
       </div>
 
    <!-- Результат поиска -->
@@ -43,7 +49,6 @@
         </a>
         {% endfor %}
         
-
             <nav class="pagination is-small" role="navigation" aria-label="pagination">
                 <a href="{{url_for('result', search = searchResult['searchName'], pages = searchResult['currentPage']-1)}}"
                    class="pagination-previous">Previous</a>
@@ -103,7 +108,7 @@
                       <li><span class="pagination-ellipsis">&hellip;</span></li>
                       
                     {% endif %}
-
+       
                 </ul>
               </nav>
             </div>
@@ -119,11 +124,12 @@
            <!-- Категории -->
           <div class="notification  is-link">
             <p><strong>Categories</strong></p>
-          {% for category in categories %}    
-          <a  href="" >
-              <p>{{category}}</p>
-          </a>
-          {% endfor %}
+            
+            {% for category in categories %}    
+              <a href = "{{url_for('categorys', category = category, url = categories[category]) }}"> {{category}} </a>
+              <br/>
+            {% endfor %}
+
          </div>
 
          <div class="notification  is-link">
