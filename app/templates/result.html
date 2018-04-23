@@ -1,25 +1,32 @@
 {% extends 'base.html' %} {% block result %}
 
-<div class="column is-narrow">
-  <p class="bd-notification is-primary">
-    <h1>{{ searchResult }}</h1>
-  </p>
-</div>
 
-<div class="columns">
-  <div class="column is-half">
 
+<div class="tile is-ancestor">
+  <!-- Левый тайл -->    
+  <div class="tile is-parent is-vertical is-7">
+       <!-- Информация о поиске тайл -->        
+      <div class="notification">
+            {{ searchResult['Result'] }}
+            <p> Page {{ searchResult['currentPage'] }} is {{ searchResult['Maxpage'] }}</p>
+      </div>
+
+   <!-- Результат поиска -->
+  <div class="tile is-child is-vertical">
+    <div class="columns">
+      <div class="column"> 
     {% for torrent in torrentsList %}
     <a href = {{torrent['link']}}>
       <div class="box has-text-centered">
         <article class="media">
-
+        <!-- Картинка -->
           <div class="media-left">
             <figure class="image is-128x128">
               <img src = {{torrent['image']}} alt = {{torrent['name']}}>
             </figure>
           </div>
 
+        <!-- Информация о торренте  -->
           <div class="media-content">
             <div class="content">
               <div class="columns">
@@ -27,16 +34,115 @@
                   <a href = {{torrent['link']}}><h4>{{torrent['name']}} </h4></a>
                   <p><i class="far fa-calendar-alt"></i> {{torrent['date']}}</p>
                   <i class="fas fa-tags"></i> {{torrent['tags']}}
+                  </div>
                 </div>
               </div>
             </div>
+            </article>
           </div>
+        </a>
+        {% endfor %}
+        
 
-        </article>
+            <nav class="pagination is-small" role="navigation" aria-label="pagination">
+                <a href="{{url_for('result', search = searchResult['searchName'], pages = searchResult['currentPage']-1)}}"
+                   class="pagination-previous">Previous</a>
+                <a href="{{url_for('result', search = searchResult['searchName'], pages = searchResult['currentPage']+1)}}"
+                class="pagination-next">Next page</a>
+
+
+                
+                <ul class="pagination-list">
+                    {% if searchResult['currentPage']>=6 %}
+                  <li><a href="{{url_for('result', search = searchResult['searchName'], pages = 1)}}"
+                         class="pagination-link" aria-label="Goto page 1">1</a></li>
+
+                  <li><span class="pagination-ellipsis">&hellip;</span></li>
+                  <li><a href="{{url_for('result', search = searchResult['searchName'], pages = searchResult['currentPage']-3)}}"
+                         class="pagination-link" aria-label="Goto page {{ searchResult['currentPage'] - 3  }}">{{ searchResult['currentPage'] - 3  }}</a></li>
+
+                  <li><a href="{{url_for('result', search = searchResult['searchName'], pages = searchResult['currentPage']-2)}}"
+                         class="pagination-link" aria-label="Goto page {{ searchResult['currentPage'] - 2  }}">{{ searchResult['currentPage'] - 2  }}</a></li>
+                         
+                  <li><a class="pagination-link" aria-label="Goto page {{ searchResult['currentPage'] - 1  }}">{{ searchResult['currentPage'] - 1  }}</a></li>
+
+                  <li><a 
+                    class="pagination-link is-current" aria-label="Page {{ searchResult['currentPage']}}" aria-current="page">{{ searchResult['currentPage'] }}</a></li>
+
+                  <li><a href="{{url_for('result', search = searchResult['searchName'], pages = searchResult['currentPage']+1)}}"
+                    class="pagination-link" aria-label="Goto page {{ searchResult['currentPage'] + 1}}">{{ searchResult['currentPage'] + 1 }}</a></li>
+
+                  <li><a href="{{url_for('result', search = searchResult['searchName'], pages = searchResult['currentPage']+2)}}"
+                    class="pagination-link" aria-label="Goto page {{ searchResult['currentPage'] + 2}}">{{ searchResult['currentPage'] + 2 }}</a></li>
+
+                  <li><a href="{{url_for('result', search = searchResult['searchName'], pages = searchResult['currentPage']+3)}}"
+                    class="pagination-link" aria-label="Goto page {{ searchResult['currentPage'] + 3}}">{{ searchResult['currentPage'] + 3}}</a></li>
+                  <li><span class="pagination-ellipsis">&hellip;</span></li>
+                  <li><a href="{{url_for('result', search = searchResult['searchName'], pages = searchResult['Maxpage'])}}"
+                    class="pagination-link" aria-label="Goto page 86">{{ searchResult['Maxpage'] }}</a></li>
+                   
+
+
+                    {% else %}
+                    <li><a 
+                      class="pagination-link is-current" aria-label="Page {{ searchResult['currentPage']}}" aria-current="page">{{ searchResult['currentPage'] }}</a></li>
+                      <li><a href="{{url_for('result', search = searchResult['searchName'], pages = searchResult['currentPage']+1)}}"
+                        class="pagination-link" aria-label="Goto page {{ searchResult['currentPage'] + 1}}">{{ searchResult['currentPage'] + 1 }}</a></li>
+    
+                      <li><a href="{{url_for('result', search = searchResult['searchName'], pages = searchResult['currentPage']+2)}}"
+                        class="pagination-link" aria-label="Goto page {{ searchResult['currentPage'] + 2}}">{{ searchResult['currentPage'] + 2 }}</a></li>
+    
+                      <li><a href="{{url_for('result', search = searchResult['searchName'], pages = searchResult['currentPage']+3)}}"
+                        class="pagination-link" aria-label="Goto page {{ searchResult['currentPage'] + 3}}">{{ searchResult['currentPage'] + 3}}</a></li>
+
+                      <li><a href="{{url_for('result', search = searchResult['searchName'], pages = searchResult['currentPage']+2)}}"
+                        class="pagination-link" aria-label="Goto page {{ searchResult['currentPage'] + 4}}">{{ searchResult['currentPage'] + 4 }}</a></li>
+    
+                      <li><a href="{{url_for('result', search = searchResult['searchName'], pages = searchResult['currentPage']+3)}}"
+                        class="pagination-link" aria-label="Goto page {{ searchResult['currentPage'] + 5}}">{{ searchResult['currentPage'] + 5}}</a></li>
+                      <li><span class="pagination-ellipsis">&hellip;</span></li>
+                      
+                    {% endif %}
+
+                </ul>
+              </nav>
+            </div>
+          </div>
+        </div>
+        </div>
+
+     <!-- Правый тайл 卐 -->
+    <div class="tile is-vertical is-hidden-mobile"> 
+      <div class="columns">
+        
+        <div class="column is-narrow is-6 is-offset-6">
+           <!-- Категории -->
+          <div class="notification  is-link">
+            <p><strong>Categories</strong></p>
+          {% for category in categories %}    
+          <a  href="" >
+              <p>{{category}}</p>
+          </a>
+          {% endfor %}
+         </div>
+
+         <div class="notification  is-link">
+            <p><strong>You're search:</strong></p>
+            <p>тут список чего искали</p>
+            <p></p>
+          </a>
+          
+         </div>
+
+         <div class="notification  is-link">
+            <p><strong>You're view:</strong></p>
+            <p>тут список чего смотрели</p>
+          </a>
+          
+         </div>
+        </div>
       </div>
-    </a>
-    {% endfor %}
+    </div>
   </div>
-</div>
 
 {% endblock %}

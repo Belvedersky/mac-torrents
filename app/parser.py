@@ -1,11 +1,10 @@
 import requests
 from bs4 import BeautifulSoup
 
-def torrentList(search, page):
-    link = f"https://mac-torrent-download.net/page/{page}/?s={search}"
+def Search(link):
     requestsall = requests.get(link)
     soup = BeautifulSoup(requestsall.content, "html.parser")
-    searchResult = soup.find("h2").get_text()
+    Result = soup.find("h2").get_text()
     maxPage = int(soup.find("div",{"class":"pagination"}).next.get_text().split()[3]) # Max page
     currentPage =  int(soup.find("span",{"class":"current"}).text)
 
@@ -20,12 +19,28 @@ def torrentList(search, page):
     torrents_image = [torImg.find_next("img").get("src") for torImg in torrents_img] # image
     torrents_date = [torDat.text for torDat in torrents_dat]
     
-    torrentList = list()
+    Result = {"Result": Result, "currentPage": currentPage,
+                    "Maxpage": maxPage}
+
+    List = list()
     for i in range(0,len(torrents_name)):
-        torrentList.append(dict(name = torrents_name[i],
+        List.append(dict(name = torrents_name[i],
                                 link = torrents_link[i],
                                 tags = torrents_tag[i],
                                 image = torrents_image[i], 
                                 date = torrents_date[i]))
+    
+    return List, Result
 
+def torrentList(search, page):
+    link = f"https://mac-torrent-download.net/page/{page}/?s={search}"
+    torrentList, searchResult = Search(link)
+    searchName = searchResult["Result"].split('"')[1]
+    searchResult["searchName"] = searchName
+    return torrentList, searchResult
+    
+    
+def categoryList(href,page):
+    link = f"{href}/page/{page}"
+    torrentList, searchResult = Search(link)
     return torrentList, searchResult

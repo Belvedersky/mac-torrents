@@ -6,84 +6,65 @@
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>torrent-parser</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.0/css/bulma.min.css">
+
+  <link  rel="stylesheet" type=text/css href="{{ url_for('static', filename='css/main.css') }}"></link>
+
+  <link rel="shortcut icon" href="{{ url_for('static', filename='img/favicon.ico') }}"/>
+
   <script defer src="https://use.fontawesome.com/releases/v5.0.7/js/all.js"></script>
+
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+
+  <script type=text/javascript href="{{ url_for('static', filename='js/main.js') }}"></script>
 </head>
 
 <body>
-  <nav class="navbar" role="navigation" aria-label="main navigation">
-    <div class="navbar-start">
-      <div class="level-right">
-        <div class="field is-grouped">
-          <p class="control">
-            <p class="level-item ">
-              <a class="link is-info">
-                <h2>
-                  <a href="{{ url_for('index')}}"> Parser torrents w/o adv</a>
-                </h2>
-              </a>
-            </p>
-          </p>
-        </div>
-      </div>
-    </div>
 
+  <nav class="navbar is-transparent is-spaced" role="navigation" aria-label="main navigation">
+  <div id="navMenuIndex" class="navbar-menu">
+      <div class="navbar-brand">
+          <a class="navbar-item" href="{{ url_for('index')}}">
+              <img src="{{ url_for('static', filename='img/navbarBrand.png') }}"
+                   alt="Parser torrents w/o advertising"
+                   > </a>
+               
+      </div>
 
     <div class="navbar-end">
-      <div class="level-right">
-        <div class="field is-grouped">
-          <p class="control">
-            <p class="level-item "><a href="https://github.com/Belvedersky/mac-torrent-download.net-parser/tree/flaskParser" class="link is-info">Github</a></p>
-            
-            <!-- категории-->
-            <div class="dropdown is-right is-hoverable">
-
-                <div class="dropdown-trigger">
-                    <a class="level-item" aria-haspopup="true" aria-controls="dropdown-menu"> -Categories- </a>
-                </div>
-            
-                <div class="dropdown-menu" id="dropdown-menu" role="menu">
-                    <div class="dropdown-content">
-            
-                        {% for category in categories %}
-            
-                        <a href = {{categories[category]}}>
-                            <p>{{category}}</p>
-                        </a>
-            
-                        {% endfor %}
-            
-                    </div>
-                </div>
-                
-            </div>
-            <!-- /категории-->
-
-
-            <p class="level-item "><a class="link is-info">About</a></p>
-          </p>
+            <a class=" navbar-item " href="https://github.com/Belvedersky/mac-torrent-download.net-parser/tree/flaskParser" class="navbar-item link is-info">Github</a></p>
+            <a class=" navbar-item ">Categories</a></p>           
+            <a class=" navbar-item ">Search</a></p>
+          
         </div>
       </div>
-    </div>
   </nav>
 
 
   <section class="hero ">
     <div class="hero-body  is-centered">
-      <div class="columns is-centered">
         <div class="column is-narrow">
           {% if getMethod %} {% block form %} {% endblock %}
         </div>
-      </div>
     </div>
   </section>
 
   {% else %} {% block result %} {% endblock %}
+  <!-- Не удаляй это моя последняя игра!
+       на самом деле этот section с дивами
+       закрывается и рисуется футер
+       потом нормально тайлами все сделаю  -->
+      </div>
+    </div>
+  </div>
+</section>
+  <!-- Все закончился блок -->
 
   <footer class="footer">
     <div class="container">
       <div class="content has-text-centered">
-        <p>Simple torrent-parser</p>
+        <h5>
+        <p><a href="https://mac-torrent-download.net/"> Mac-torrent-download.net</a> parser</p>
+        <p>Made with <a class="is-warning" href="http://flask.pocoo.org">Flask</a>, <a class="is-primary" href="https://bulma.io">bulma.io</a> and 🍻</p></h5>
       </div>
     </div>
   </footer>

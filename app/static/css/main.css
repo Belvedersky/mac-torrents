@@ -1,0 +1,20 @@
+/* 
+@font-face {
+    font-family: "SF Display";
+    font-weight: 600;
+    src: url("https://sf.abarba.me/SF-UI-Display-Semibold.otf");
+  } */
+/* .categories{
+    text-align: right;
+    background-color: whitesmoke;
+} */
+
+.image {
+    border-radius: 6%;
+  }
+
+.centered{
+    position: relative;
+    top: 50%;
+    transform: translateY(-50%);
+}

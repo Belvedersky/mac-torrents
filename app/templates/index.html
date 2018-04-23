@@ -1,21 +1,21 @@
 {% extends 'base.html' %} {% block form %}
 
-<form action="{{url_for('index')}}" method="POST">
-        <div class="field has-addons has-addons-centered is-grouped">
+<form onkeypress="if (event.keyCode==13)this.submit();" action="{{url_for('index')}}" method="POST">
+        <div class="field  is-grouped-centered is-grouped">
 
                 <div class="control">
-                        <input class="input is-info is-medium"
+                        <input class="input is-link is-medium"
                                 id="search" 
                                 type="text" 
                                 pattern="[0-9]{3}" 
                                 placeholder="Find something" 
                                 name="search"
-                                value="{{ request.form.get('search'," ")}}">
+                                value="{{ request.form.get('search',"")}}">
                 </div>
 
                 <div class="control">
                         <p class="control">
-                                <a href="javascript:$('form').submit()" class="button is-info is-medium">Search</a>
+                                <a href="javascript:$('form').submit()" class="button is-medium is-link is-outlined">Search</a>
                         </p>
                 </div>
 
