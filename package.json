@@ -1,0 +1,35 @@
+{
+  "name": "mac-torrents",
+  "version": "0.0.1",
+  "license": "MIT",
+  "description": "Torrents parser for mac-os",
+  "author": "Andrey Belvedersky <andrey@belvedersky.ru>",
+  "keywords": [
+    "mac",
+    "torrents",
+    "command",
+    "cli"
+  ],
+  "main": "./lib/mac-torrents.js",
+  "bin": {
+    "mac-torrents": "node -r esm ./bin/index.js"
+  },
+  "preferGlobal": true,
+  "dependencies": {
+    "arg": "^4.1.2",
+    "colors": "^1.4.0",
+    "downloads-folder": "^1.0.2",
+    "inquirer": "^7.0.0",
+    "lodash": "^4.17.15",
+    "ora": "^4.0.3",
+    "wrap-ansi": "^6.2.0",
+    "x-ray": "^2.3.4"
+  },
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com/"
+  },
+  "devDependencies": {
+    "eslint": "^6.7.2",
+    "eslint-config-google": "^0.14.0"
+  }
+}
