@@ -85,7 +85,6 @@ TODO:
       break;
 
     default:
-      console.log(answers);
       break;
   }
 });

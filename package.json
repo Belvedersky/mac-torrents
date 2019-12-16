@@ -3,7 +3,7 @@
   "version": "0.0.1",
   "license": "MIT",
   "description": "Torrents parser for mac-os",
-  "author": "Andrey Belvedersky <andrey@belvedersky.ru>",
+  "author": "belvedersky <qwink186@icloud.com>",
   "keywords": [
     "mac",
     "torrents",
@@ -24,10 +24,8 @@
     "ora": "^4.0.3",
     "wrap-ansi": "^6.2.0",
     "x-ray": "^2.3.4"
-  },
-  "publishConfig": {
-    "registry": "https://npm.pkg.github.com/"
-  },
+	},
+	"publishConfig": { "registry": "https://npm.pkg.github.com/" },
   "devDependencies": {
     "eslint": "^6.7.2",
     "eslint-config-google": "^0.14.0"

@@ -1,0 +1,9 @@
+node_modules
+bin/test.js
+examples
+bin/test2.js
+.editorconfig
+.eslintrc.js
+yarn-error.log
+yarn.lock
+.DS_Store
