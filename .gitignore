@@ -7,3 +7,4 @@ bin/test2.js
 yarn-error.log
 yarn.lock
 .DS_Store
+.npmrc
