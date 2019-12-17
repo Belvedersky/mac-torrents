@@ -4,6 +4,7 @@
  * mac-torrent-parser CLI app
  * Search,download and open .torrents app
  */
+
 /* eslint-disable require-jsdoc */
 /* eslint-disable no-trailing-spaces */
 // eslint-disable-next-line no-unused-vars
