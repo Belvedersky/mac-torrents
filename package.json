@@ -1,6 +1,6 @@
 {
   "name": "mac-torrents",
-  "version": "0.0.8",
+  "version": "0.0.9",
   "license": "MIT",
   "description": "Torrents parser for mac-os",
   "author": "belvedersky <qwink186@icloud.com>",

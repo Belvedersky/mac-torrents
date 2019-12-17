@@ -83,7 +83,6 @@ menu.main.then((answers) => {
     case 'Settings':
       console.log(menu.toDo);
       break;
-
     default:
       break;
   }
