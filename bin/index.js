@@ -77,7 +77,6 @@ menu.main.then((answers) => {
         __.getTorrentsByCategory(data.category).then((data) => {
           getTorrentList(data);
         });
-        // console.log(data);
       });
       break;
     case 'Settings':
@@ -88,5 +87,3 @@ menu.main.then((answers) => {
       break;
   }
 });
-
-// __.say("Hello world!");

@@ -1,6 +1,6 @@
 {
   "name": "mac-torrents",
-  "version": "0.0.7",
+  "version": "0.0.8",
   "license": "MIT",
   "description": "Torrents parser for mac-os",
   "author": "belvedersky <qwink186@icloud.com>",
@@ -19,7 +19,7 @@
     "arg": "^4.1.2",
     "colors": "^1.4.0",
     "downloads-folder": "^1.0.2",
-    "inquirer": "^7.0.0",
+    "inquirer": "^7.0.1",
     "lodash": "^4.17.15",
     "ora": "^4.0.3",
     "wrap-ansi": "^6.2.0",
