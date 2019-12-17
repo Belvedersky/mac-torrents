@@ -21,6 +21,7 @@
     "downloads-folder": "^1.0.2",
     "inquirer": "^7.0.1",
     "lodash": "^4.17.15",
+    "open": "^7.0.0",
     "ora": "^4.0.3",
     "wrap-ansi": "^6.2.0",
     "x-ray": "^2.3.4"
