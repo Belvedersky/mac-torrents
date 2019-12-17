@@ -71,17 +71,17 @@ menu.main.then((answers) => {
         });
       });
       break;
-			
+
     case 'Search torrent by categories':
-      console.log('Select categories -> TODO');
+      menu.categoryMenu().then((data)=>{
+        __.getTorrentsByCategory(data.category).then((data) => {
+          getTorrentList(data);
+        });
+        // console.log(data);
+      });
       break;
     case 'Settings':
-      console.log(`
-TODO:
--> Add search by categories
--> Manage menu
--> Add select torrent program like: Transmittion, WebTorrent, uTorrent,
--> Add select input website as config.js and save this as .json`);
+      console.log(menu.toDo);
       break;
 
     default:

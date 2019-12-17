@@ -1,6 +1,6 @@
 {
-  "name": "@belvedersky/mac-torrents",
-  "version": "0.0.2",
+  "name": "mac-torrents",
+  "version": "0.0.7",
   "license": "MIT",
   "description": "Torrents parser for mac-os",
   "author": "belvedersky <qwink186@icloud.com>",
@@ -25,9 +25,6 @@
     "wrap-ansi": "^6.2.0",
     "x-ray": "^2.3.4"
   },
-  "publishConfig": {
-    "registry": "https://npm.pkg.github.com/"
-  },
   "devDependencies": {
     "eslint": "^6.7.2",
     "eslint-config-google": "^0.14.0"
@@ -42,10 +39,10 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Belvedersky/mac-torrent-download.net-parser.git"
+    "url": "git+https://github.com/Belvedersky/mac-torrents.git"
   },
   "bugs": {
-    "url": "https://github.com/Belvedersky/mac-torrent-download.net-parser/issues"
+    "url": "https://github.com/Belvedersky/mac-torrents/issues"
   },
-  "homepage": "https://github.com/Belvedersky/mac-torrent-download.net-parser#readme"
+  "homepage": "https://github.com/Belvedersky/mac-torrents#readme"
 }
