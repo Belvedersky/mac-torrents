@@ -1,6 +1,8 @@
 # Mac-torrents cli app
-Cli tools to get torrents-file from mac-os
+Macos torrents parser.
 
+
+![img](out.gif)
 Install:
 ```
 npm install -g mac-torrents
@@ -12,8 +14,10 @@ mac-torrents
 ```
 
 TODO:
-- Add args.
+
 - Manage menu.
-- Add select torrent program like: Transmittion, WebTorrent, uTorrent.
-- Add select input website as config.js and save/parse this as .json.
-- Delete some dependencies.
+    - Add next page navigation
+    - Add settings
+- Add select input website as config.json
+- Delete some unused dependencies.
+- Edit README.md

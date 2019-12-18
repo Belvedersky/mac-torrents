@@ -1,6 +1,6 @@
 {
   "name": "mac-torrents",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "license": "MIT",
   "description": "Torrents parser for mac-os",
   "author": "belvedersky <qwink186@icloud.com>",
@@ -16,11 +16,11 @@
   },
   "preferGlobal": true,
   "dependencies": {
-    "arg": "^4.1.2",
     "colors": "^1.4.0",
     "downloads-folder": "^1.0.2",
     "inquirer": "^7.0.1",
     "lodash": "^4.17.15",
+    "minimist": "^1.2.0",
     "open": "^7.0.0",
     "ora": "^4.0.3",
     "webtorrent": "^0.107.17",
@@ -30,11 +30,6 @@
   "devDependencies": {
     "eslint": "^6.7.2",
     "eslint-config-google": "^0.14.0"
-  },
-  "directories": {
-    "example": "examples",
-    "lib": "lib",
-    "test": "test"
   },
   "scripts": {
     "start": "node ./bin/index.js",
