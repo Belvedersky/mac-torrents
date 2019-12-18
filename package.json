@@ -36,7 +36,7 @@
     "test": "test"
   },
   "scripts": {
-    "start" : "node ./bin/index.js",
+    "start": "node ./bin/index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {

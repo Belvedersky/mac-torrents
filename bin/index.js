@@ -56,34 +56,36 @@ function getTorrentList(data) {
 }
 
 
-menu.main.then((answers) => {
-  switch (answers.action) {
-    case 'Get top-list torrents list':
-      __.getLastTorrents().then((data) => {
-        getTorrentList(data);
-      });
-      break;
-
-    case 'Search torrent by name':
-      // console.log('Search ->');
-      menu.findMenu().then((data) => {
-        __.searchTorrents(data.search).then((data) => {
+const startMenu = () =>
+  menu.main.then((answers) => {
+    switch (answers.action) {
+      case 'Get top-list torrents list':
+        __.getLastTorrents().then((data) => {
           getTorrentList(data);
         });
-      });
-      break;
+        break;
 
-    case 'Search torrent by categories':
-      menu.categoryMenu().then((data)=>{
-        __.getTorrentsByCategory(data.category).then((data) => {
-          getTorrentList(data);
+      case 'Search torrent by name':
+        // console.log('Search ->');
+        menu.findMenu().then((data) => {
+          __.searchTorrents(data.search).then((data) => {
+            if (data) getTorrentList(data);
+          });
         });
-      });
-      break;
-    case 'Settings':
-      console.log(menu.toDo);
-      break;
-    default:
-      break;
-  }
-});
+        break;
+
+      case 'Search torrent by categories':
+        menu.categoryMenu().then((data)=>{
+          __.getTorrentsByCategory(data.category).then((data) => {
+            getTorrentList(data);
+          });
+        });
+        break;
+      case 'Settings':
+        console.log(menu.toDo);
+        break;
+      default:
+        break;
+    }
+  });
+startMenu();
