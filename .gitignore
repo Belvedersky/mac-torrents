@@ -9,3 +9,5 @@ yarn.lock
 .vscode
 .DS_Store
 .npmrc
+.
+.prettierrc
