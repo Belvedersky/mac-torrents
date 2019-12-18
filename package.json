@@ -1,9 +1,9 @@
 {
   "name": "mac-torrents",
-  "version": "0.0.1",
+  "version": "0.1.0",
   "license": "MIT",
   "description": "Torrents parser for mac-os",
-  "author": "Andrey Belvedersky <andrey@belvedersky.ru>",
+  "author": "belvedersky <qwink186@icloud.com>",
   "keywords": [
     "mac",
     "torrents",
@@ -12,24 +12,40 @@
   ],
   "main": "./lib/mac-torrents.js",
   "bin": {
-    "mac-torrents": "node -r esm ./bin/index.js"
+    "mac-torrents": "./bin/index.js"
   },
   "preferGlobal": true,
   "dependencies": {
     "arg": "^4.1.2",
     "colors": "^1.4.0",
     "downloads-folder": "^1.0.2",
-    "inquirer": "^7.0.0",
+    "inquirer": "^7.0.1",
     "lodash": "^4.17.15",
+    "open": "^7.0.0",
     "ora": "^4.0.3",
+    "webtorrent": "^0.107.17",
     "wrap-ansi": "^6.2.0",
     "x-ray": "^2.3.4"
-  },
-  "publishConfig": {
-    "registry": "https://npm.pkg.github.com/"
   },
   "devDependencies": {
     "eslint": "^6.7.2",
     "eslint-config-google": "^0.14.0"
-  }
+  },
+  "directories": {
+    "example": "examples",
+    "lib": "lib",
+    "test": "test"
+  },
+  "scripts": {
+    "start": "node ./bin/index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Belvedersky/mac-torrents.git"
+  },
+  "bugs": {
+    "url": "https://github.com/Belvedersky/mac-torrents/issues"
+  },
+  "homepage": "https://github.com/Belvedersky/mac-torrents#readme"
 }
