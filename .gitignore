@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 node_modules
 bin/test.js
 examples
@@ -6,3 +7,13 @@ bin/test2.js
 .eslintrc.js
 yarn-error.log
 yarn.lock
+=======
+.vscode
+<<<<<<< HEAD
+__pycache__
+=======
+__pycache__
+helpList.py
+t.txt
+>>>>>>> 2bf5756935c1b8d47f1cb222abc1ac96696d5de6
+>>>>>>> 6c555d3ca5b33f4b7263106f0402e12b26e81ad7
