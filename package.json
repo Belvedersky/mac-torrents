@@ -16,6 +16,7 @@
   },
   "preferGlobal": true,
   "dependencies": {
+    "cli-progress": "^3.4.0",
     "colors": "^1.4.0",
     "downloads-folder": "^1.0.2",
     "inquirer": "^7.0.1",
