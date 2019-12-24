@@ -10,3 +10,12 @@ yarn.lock
 .npmrc
 .prettierrc
 out.gif
+src
+__tests__
+.babelrc
+.eslintignore
+.gitignore
+.travis.yml
+Makefile
+package-lock.json
+package.json

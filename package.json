@@ -1,40 +1,70 @@
 {
   "name": "mac-torrents",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "license": "MIT",
   "description": "Torrents parser for mac-os",
   "author": "belvedersky <qwink186@icloud.com>",
+  "contributors": [
+    "rbushuev (https://vk.com/superromka)"
+  ],
   "keywords": [
     "mac",
     "torrents",
     "command",
-    "cli"
+    "cli",
+    "terminal"
   ],
-  "main": "./lib/mac-torrents.js",
+  "main": "./dist/bin",
   "bin": {
-    "mac-torrents": "./bin/index.js"
+    "mac-torrents": "./dist/bin"
   },
   "preferGlobal": true,
   "dependencies": {
+    "@babel/plugin-proposal-export-default-from": "^7.7.4",
+    "@babel/runtime": "^7.7.7",
+    "@babel/runtime-corejs2": "^7.7.7",
+    "babel-jest": "^24.9.0",
+    "chalk": "^3.0.0",
     "cli-progress": "^3.4.0",
     "colors": "^1.4.0",
     "downloads-folder": "^1.0.2",
+    "eslint-plugin-jest": "^23.1.1",
     "inquirer": "^7.0.1",
     "lodash": "^4.17.15",
-    "minimist": "^1.2.0",
     "open": "^7.0.0",
     "ora": "^4.0.3",
+    "request-x-ray": "^0.1.4",
     "webtorrent": "^0.107.17",
     "wrap-ansi": "^6.2.0",
     "x-ray": "^2.3.4"
   },
   "devDependencies": {
-    "eslint": "^6.7.2",
-    "eslint-config-google": "^0.14.0"
+    "@babel/cli": "7.7.7",
+    "@babel/core": "^7.2.2",
+    "@babel/node": "^7.2.2",
+    "@babel/plugin-syntax-export-default-from": "^7.7.4",
+    "@babel/plugin-transform-arrow-functions": "^7.7.4",
+    "@babel/plugin-transform-async-to-generator": "^7.7.4",
+    "@babel/plugin-transform-runtime": "^7.7.6",
+    "@babel/preset-env": "^7.7.7",
+    "babel-eslint": "^10.0.3",
+    "babel-minify": "^0.5.1",
+    "babel-plugin-minify-constant-folding": "^0.5.0",
+    "babel-plugin-minify-simplify": "^0.5.1",
+    "babel-plugin-syntax-async-functions": "^6.13.0",
+    "babel-preset-minify": "^0.5.1",
+    "eslint": "^6.8.0",
+    "eslint-config-airbnb-base": "^14.0.0",
+    "eslint-config-google": "^0.14.0",
+    "eslint-plugin-babel": "^5.3.0",
+    "eslint-plugin-import": "^2.19.1",
+    "jest": "^24.9.0",
+    "nodemon": "^1.18.9"
   },
   "scripts": {
-    "start": "node ./bin/index.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node bin/index.js",
+    "test": "jest",
+    "build": " eslint src && NODE_ENV=production babel --plugins @babel/plugin-transform-async-to-generator src -d dist"
   },
   "repository": {
     "type": "git",

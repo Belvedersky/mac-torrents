@@ -1,7 +1,7 @@
-const ora = require('ora');
-const downloadTorrent = require('./download');
+import ora from 'ora';
+import downloadTorrent from './download';
 
-module.exports = async (data) => {
+export default async (data) => {
   const spinner = ora('Save torrent file').start();
   const name = data.title.toLowerCase().split(' ').join('_');
   downloadTorrent(data.file, name, () => {
@@ -11,5 +11,3 @@ module.exports = async (data) => {
     });
   });
 };
-
-

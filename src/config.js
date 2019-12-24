@@ -1,4 +1,5 @@
-exports.torrentmac = {
+
+export default {
   url: 'https://www.torrentmac.net',
   divList: 'article.post',
   post: [
@@ -21,14 +22,14 @@ exports.torrentmac = {
     description: 'section.post_content p',
   },
   category: {
-    'Video': 'application/video',
+    Video: 'application/video',
     'Graphics & Design': 'application/graphics-design',
-    'Photography': 'application/photography',
-    'Productivity': 'application/productivity',
-    'Utilities': 'application/utilities',
-    'Music': 'application/music',
-    'Office': 'application/office',
-    'Adobe': 'application/adobe',
-    'Games': 'games',
+    Photography: 'application/photography',
+    Productivity: 'application/productivity',
+    Utilities: 'application/utilities',
+    Music: 'application/music',
+    Office: 'application/office',
+    Adobe: 'application/adobe',
+    Games: 'games',
   },
 };

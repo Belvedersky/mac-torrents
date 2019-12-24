@@ -1,7 +1,7 @@
-const inquirer = require('inquirer');
+import { prompt } from 'inquirer';
 
-module.exports = async () => {
-  const action = await inquirer.prompt([
+export default async () => {
+  const action = await prompt([
     {
       type: 'input',
       name: 'search',
@@ -9,4 +9,3 @@ module.exports = async () => {
     }]);
   return action.search;
 };
-
