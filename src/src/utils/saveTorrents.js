@@ -1,6 +1,6 @@
 import { camelCase } from 'lodash';
 import Spinner from './spinner';
-import downloadTorrent from './download';
+import downloadTorrent from './downloadTorrent';
 
 export default async (data) => {
   const name = camelCase(data);

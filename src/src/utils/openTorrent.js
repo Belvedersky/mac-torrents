@@ -3,7 +3,7 @@ import open from 'open';
 import downloadsFolder from 'downloads-folder';
 import { camelCase } from 'lodash';
 import Spinner from './spinner';
-import downloadTorrent from './download';
+import downloadTorrent from './downloadTorrent';
 import webTorrent from './webtorrent';
 
 export default (data) => {

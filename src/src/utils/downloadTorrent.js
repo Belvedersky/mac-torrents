@@ -10,9 +10,8 @@ export default (url, dest, cb) => {
     file.on('finish', () => {
       file.close(cb);
     });
-  })
-    .on('error', (err) => {
-      unlink(path);
-      if (cb) cb(err.message);
-    });
+  }).on('error', (err) => {
+    unlink(path);
+    if (cb) cb(err.message);
+  });
 };
