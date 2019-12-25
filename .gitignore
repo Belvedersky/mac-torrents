@@ -1,5 +1,5 @@
 node_modules
-bin/test.js
+dist
 examples
 bin/test2.js
 .editorconfig
