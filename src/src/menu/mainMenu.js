@@ -1,7 +1,7 @@
-const inquirer = require('inquirer');
+import { prompt, Separator } from 'inquirer';
 
-module.exports = async () => {
-  const userChoise = await inquirer.prompt([
+export default async () => {
+  const userChoise = await prompt([
     {
       type: 'list',
       name: 'action',
@@ -10,7 +10,7 @@ module.exports = async () => {
         'Get top-list torrents list',
         'Search torrent by name',
         'Search torrent by categories',
-        new inquirer.Separator(),
+        new Separator(),
         'Settings',
       ],
     },
