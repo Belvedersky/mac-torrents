@@ -13,11 +13,7 @@ export default async (data) => {
     .split(' ')
     .join('_');
 
-  const openfile = async () => {
-    const run = open(`${downloadsFolder()}/${name}.torrent`);
-    return run;
-  };
-
+  const openfile = async () => open(`${downloadsFolder()}/${name}.torrent`);
   downloadTorrent(data.file, name, async () => {
     spinner.stopAndPersist({
       symbol: '✨',
@@ -27,9 +23,7 @@ export default async (data) => {
     data.downloadsFolder = downloadsFolder();
     try {
       await openfile().then((openState) => {
-        openState.on('error', async () => {
-          await webTorrent(data);
-        });
+        openState.addListener('error', () => { webTorrent(data); });
       });
     } catch (error) {
       console.log(error);
