@@ -8,7 +8,7 @@ import webTorrent from './webtorrent';
 
 export default (data) => {
   const name = camelCase(data.title);
-  const spinner = new Spinner('Save torrent file', `save ${name}.torrent`);
+  const spinner = new Spinner('Save torrent file', `save ${data.title}.torrent`);
   spinner.start();
 
   const openfile = () => {
