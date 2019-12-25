@@ -1,13 +1,17 @@
-import ora from 'ora';
+import { camelCase } from 'lodash';
+import Spinner from './spinner';
 import downloadTorrent from './download';
 
 export default async (data) => {
-  const spinner = ora('Save torrent file').start();
-  const name = data.title.toLowerCase().split(' ').join('_');
-  downloadTorrent(data.file, name, () => {
-    spinner.stopAndPersist({
-      symbol: '✨',
-      text: `Save ${name}.torrent`,
+  const name = camelCase(data);
+  const spinner = new Spinner('Save torrent file', `save ${name}.torrent`);
+  try {
+    spinner.start();
+    downloadTorrent(data.file, name, () => {
+      spinner.stop();
     });
-  });
+    return true;
+  } catch (error) {
+    return error;
+  }
 };

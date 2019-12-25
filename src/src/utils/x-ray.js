@@ -7,7 +7,7 @@ const options = {
   method: 'GET',
   jar: true,
   headers: {
-    'User-Agent': 'Firefox/48.0',
+    'User-Agent': 'Chrome' || 'Firefox/48.0' || 'Safari',
   },
 };
 const driver = makeDriver(options);

@@ -1,21 +1,20 @@
-import ora from 'ora';
 import torrentmac from '../config';
 import x from './utils/x-ray';
+import Spinner from './utils/spinner';
 
 export default async function () {
-  const spinner = ora('Loading torrents').start();
+  const spinner = new Spinner('Loading torrents', 'Get all torrents');
   try {
+    spinner.start();
     const res = await x(
       torrentmac.url,
       torrentmac.divList,
       torrentmac.post,
     );
-    spinner.stopAndPersist({
-      symbol: '✨',
-      text: 'Get all torrents',
-    });
     return res;
   } catch (err) {
     return err;
+  } finally {
+    spinner.stop();
   }
 }

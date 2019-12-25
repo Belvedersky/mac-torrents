@@ -1,10 +1,11 @@
-import ora from 'ora';
 import torrentmac from '../config';
 import x from './utils/x-ray';
+import Spinner from './utils/spinner';
 
 export default async (url) => {
-  const spinner = ora('Get torrent info').start();
+  const spinner = new Spinner('Get torrent info', 'Get torrent');
   try {
+    spinner.start();
     const res = await x(
       url,
       torrentmac.divTorrent,
@@ -12,12 +13,10 @@ export default async (url) => {
     );
     res.category = res.category.split(',');
     res.size = `${res.size.split('Size:')[1].split('MB')[0]}Mb`;
-    spinner.stopAndPersist({
-      symbol: '✨',
-      text: 'Get torrent',
-    });
     return res;
   } catch (err) {
     return err;
+  } finally {
+    spinner.stop();
   }
 };

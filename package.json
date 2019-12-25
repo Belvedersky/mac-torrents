@@ -13,7 +13,7 @@
     "cli",
     "terminal"
   ],
-  "main": "./dist/bin/index.js",
+  "main": "./dist/mac-torrents.js",
   "bin": {
     "mac-torrents": "./dist/bin/index.js"
   },

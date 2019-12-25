@@ -11,10 +11,6 @@ import start from '../index';
 import saveTorrents from './utils/saveTorrents';
 import saveAndOpenTorrent from './utils/openTorrent';
 
-/**
- * getTorrentList
- * @param {obj} data from x-ray
- */
 export default async function getTorrentList(data) {
   const torrents = keyBy(data, 'title');
   const torrentName = await selectTorrents(torrents);
@@ -35,7 +31,6 @@ export default async function getTorrentList(data) {
         break;
 
       default:
-        // eslint-disable-next-line no-console
         console.clear();
         getTorrentList(torrents);
         break;
