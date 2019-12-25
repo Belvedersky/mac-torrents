@@ -7,10 +7,16 @@ import webTorrent from './webtorrent';
 
 export default async (data) => {
   const spinner = ora('Save torrent file').start();
+
   const name = data.title
     .toLowerCase()
     .split(' ')
     .join('_');
+
+  const openfile = async () => {
+    const run = open(`${downloadsFolder()}/${name}.torrent`);
+    return run;
+  };
 
   downloadTorrent(data.file, name, async () => {
     spinner.stopAndPersist({
@@ -20,9 +26,13 @@ export default async (data) => {
     // eslint-disable-next-line no-param-reassign
     data.downloadsFolder = downloadsFolder();
     try {
-      await open(`${downloadsFolder()}/${name}.torrent`, { wait: false });
+      await openfile().then((openState) => {
+        openState.on('error', async () => {
+          await webTorrent(data);
+        });
+      });
     } catch (error) {
-      await webTorrent(data);
+      console.log(error);
     }
   });
 };
