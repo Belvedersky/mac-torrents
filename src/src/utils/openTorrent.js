@@ -6,23 +6,30 @@ import { camelCase } from 'lodash';
 import downloadTorrent from './download';
 import webTorrent from './webtorrent';
 
-export default async (data) => {
+export default (data) => {
   const spinner = ora('Save torrent file').start();
   const name = camelCase(data.title);
-  const openfile = async () => open(`${downloadsFolder()}/${name}.torrent`);
-  downloadTorrent(data.file, name, async () => {
-    spinner.stopAndPersist({
-      symbol: '✨',
-      text: `Open ${name}.torrent`,
+  const openfile = () => {
+    const openFile = open(`${downloadsFolder()}/${name}.torrent`, {});
+    openFile.then((e) => {
+      e.stderr.addListener('data', async () => {
+        await webTorrent(data);
+      });
     });
+    return openFile;
+  };
+  downloadTorrent(data.file, name, async () => {
     // eslint-disable-next-line no-param-reassign
     data.downloadsFolder = downloadsFolder();
     try {
-      await openfile().then((openState) => {
-        openState.addListener('error', () => { webTorrent(data); });
-      });
+      await openfile();
     } catch (error) {
       console.log(error);
+    } finally {
+      spinner.stopAndPersist({
+        symbol: '✨',
+        text: `Open ${name}.torrent`,
+      });
     }
   });
 };

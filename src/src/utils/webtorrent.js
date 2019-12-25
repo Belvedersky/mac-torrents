@@ -3,7 +3,7 @@ import WebTorrent from 'webtorrent';
 import { SingleBar, Presets } from 'cli-progress';
 
 export default async (data) => {
-  console.log('\nNot found torrent app. download with webtorrent');
+  console.log('\n Not found torrent app. download with webtorrent');
   const client = new WebTorrent();
   const b1 = new SingleBar({},
     Presets.shades_classic);
