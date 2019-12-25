@@ -1,6 +1,6 @@
 {
   "name": "mac-torrents",
-  "version": "0.1.7",
+  "version": "0.1.8",
   "description": "Torrents parser for mac-os",
   "author": "belvedersky <qwink186@icloud.com>",
   "contributors": [
@@ -18,7 +18,8 @@
     "mac-torrents": "./dist/bin/index.js"
   },
   "files": [
-    "/dist"
+    "/dist",
+    "README.md"
   ],
   "preferGlobal": true,
   "dependencies": {
