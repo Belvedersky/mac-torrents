@@ -3,6 +3,7 @@ install:
 
 start:
 	npx babel-node src/bin/
+	
 run:
 	node dist/bin
 

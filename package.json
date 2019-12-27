@@ -63,7 +63,7 @@
         "nodemon": "^1.18.9"
     },
     "scripts": {
-        "start": "node bin/index.js",
+        "start": "npx babel-node src/bin/",
         "test": "jest",
         "build": " eslint src && NODE_ENV=production babel --plugins @babel/plugin-transform-async-to-generator src -d dist"
     },
