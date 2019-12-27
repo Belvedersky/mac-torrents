@@ -1,6 +1,7 @@
 node_modules
 dist
 examples
+package-lock.json
 yarn-error.log
 .vscode
 .DS_Store
