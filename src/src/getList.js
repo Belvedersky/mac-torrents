@@ -1,20 +1,21 @@
-const _ = require('lodash');
-const getTorrent = require('./get');
+/* eslint-disable import/no-cycle */
+import { keyBy } from 'lodash';
+import getTorrent from './get';
 
 // menu functions
-const selectTorrents = require('./menu/selectTorrents');
-const writeInfoTorrent = require('./menu/infoTorrent');
-const saveOrOpenTorrent = require('./menu/fileMenu');
-const mainMenu = require('../index');
+import selectTorrents from './menu/selectTorrents';
+import writeInfoTorrent from './menu/infoTorrent';
+import saveOrOpenTorrent from './menu/fileMenu';
+import start from '../index';
 
-const saveTorrents = require('./utils/saveTorrents');
-const saveAndOpenTorrent = require('./utils/openTorrent');
+import saveTorrents from './utils/saveTorrents';
+import saveAndOpenTorrent from './utils/openTorrent';
 
-module.exports = async function getTorrentList(data) {
-  const torrents = _.keyBy(data, 'title');
+export default async function getTorrentList(data) {
+  const torrents = keyBy(data, 'title');
   const torrentName = await selectTorrents(torrents);
-  if (torrentName == 'Main menu') {
-    mainMenu.start();
+  if (torrentName === 'Main menu') {
+    start();
   } else {
     const torrentInfo = await getTorrent(torrents[torrentName].link);
     writeInfoTorrent(torrentInfo);
@@ -35,4 +36,4 @@ module.exports = async function getTorrentList(data) {
         break;
     }
   }
-};
+}

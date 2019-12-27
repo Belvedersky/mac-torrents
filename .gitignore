@@ -1,12 +1,7 @@
 node_modules
 dist
 examples
-bin/test2.js
-.editorconfig
-.eslintrc.js
 yarn-error.log
-yarn.lock
 .vscode
 .DS_Store
-.npmrc
-.prettierrc
+dist
