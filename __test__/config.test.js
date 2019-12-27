@@ -1,3 +1,4 @@
+/* eslint-disable no-undef */
 import config from '../src/config.json';
 
 const data = ['url', 'post', 'torrent', 'category', 'divTorrent', 'divList'];
