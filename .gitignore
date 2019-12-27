@@ -1,10 +1,6 @@
 node_modules
 examples
-.editorconfig
-.eslintrc.js
 yarn-error.log
-yarn.lock
 .vscode
 .DS_Store
-.prettierrc
 dist

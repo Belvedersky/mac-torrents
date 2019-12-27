@@ -5,7 +5,7 @@ import wrapAnsi from 'wrap-ansi';
 export default async (data) => {
   console.log(
     chalk`
--- {blue ${data.title} } --
+ {blue -- ${data.title} -- } 
 Date:  {green ${data.time}}
 Size: {yellow ${data.size}}
 Category: {rgb(255,131,0)  ${data.category}}

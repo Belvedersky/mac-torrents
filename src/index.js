@@ -29,8 +29,7 @@ export default async function start() {
         if (data === 'Main menu') {
           start();
         } else {
-          const categoryTorrents = await getTorrentsByCategory(data);
-          getTorrentList(categoryTorrents);
+          getTorrentList(await getTorrentsByCategory(data));
         }
       });
       break;
