@@ -5,3 +5,5 @@ yarn-error.log
 .vscode
 .DS_Store
 dist
+package-lock.json
+yarn.lock
