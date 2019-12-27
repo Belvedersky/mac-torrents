@@ -1,4 +1,3 @@
-/* global test, expect */
 import config from '../src/config.json';
 
 const data = ['url', 'post', 'torrent', 'category', 'divTorrent', 'divList'];
