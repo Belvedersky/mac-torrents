@@ -11,6 +11,7 @@ export default async function () {
       torrentmac.divList,
       torrentmac.post,
     );
+    console.log(res);
     return res;
   } catch (err) {
     return err;
