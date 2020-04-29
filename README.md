@@ -2,14 +2,15 @@
 Macos torrents parser.
 
 
-![img](out.gif)
+![img](previw.gif)
+
 Install:
-```
+```bash
 npm install -g mac-torrents
 ```
 
 Usage:
-```
+```bash
 mac-torrents
 ```
 
