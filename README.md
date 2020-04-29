@@ -2,7 +2,7 @@
 Macos torrents parser.
 
 
-![img](previw.gif)
+![img](preview.gif)
 
 Install:
 ```bash
